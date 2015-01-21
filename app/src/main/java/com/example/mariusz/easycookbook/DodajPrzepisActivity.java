@@ -30,10 +30,10 @@ public class DodajPrzepisActivity extends ActionBarActivity {
     RestRecipeBackgroundTask restRecipeBackgroundTask;
 
 
-
+//user dodany
     @Extra
     User user;
-
+//edity z xmla
     @ViewById
     EditText title;
 
@@ -55,9 +55,8 @@ public class DodajPrzepisActivity extends ActionBarActivity {
     @ViewById
     EditText servings;
 
-    @ViewById
-    Button buttonConfirm;
 
+//spowolnienie procesu
     ProgressDialog ringProgressDialog;
 
     @AfterViews
@@ -84,22 +83,24 @@ public class DodajPrzepisActivity extends ActionBarActivity {
         recipe.cookingMinutes = cookingMinutes.getText().toString();
         recipe.servings = servings.getText().toString();
 
-
+// funkcja warunkowa if, jesli pola nie są wypełnione
         if ((title.length() == 0) || (ingredients.length() == 0) || (steps.length() == 0) || (servings.length() == 0)) {
             ringProgressDialog.dismiss();
             Toast.makeText(this, "Wszystkie pola muszą być wypełnione!", Toast.LENGTH_LONG).show();
         }
         else
         {
-            try{
-            restRecipeBackgroundTask.addCookBookEntry(recipe,user.sessionId);}
+            try
+            {//dodawanie przpisu
+            restRecipeBackgroundTask.addCookBookEntry(recipe,user.sessionId);
+            }//powrót do maina w razie problemów
             catch (Exception e){showError(e);}
             MainActivity_.intent(this).user(user).start();
 
 
         }
     }
-
+//wiadomosc udanego dodanie przepisu Toast
     public void confirmSuccess(Recipe recipe) {
         ringProgressDialog.dismiss();
         Toast.makeText(this, "Przepis dodany z sukcesem!", Toast.LENGTH_LONG).show();
