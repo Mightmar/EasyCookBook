@@ -19,10 +19,10 @@ public class RestRecipeBackgroundTask {
     CookbookRestClient restClient;
 
     @Background
-    void addCookBookEntry(User user, Recipe recipe) {
+    void addCookBookEntry(Recipe recipe,String sessionId) {
         try {
             restClient.setHeader("X-Dreamfactory-Application-Name", "cookbook");
-            restClient.setHeader("X-Dreamfactory-Session-Token", user.sessionId);
+            restClient.setHeader("X-Dreamfactory-Session-Token",sessionId);
             restClient.addCookBookEntry(recipe);
             publishResult(recipe);
         } catch (Exception e) {

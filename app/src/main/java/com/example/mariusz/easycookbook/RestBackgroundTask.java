@@ -8,6 +8,8 @@ import org.androidannotations.annotations.RootContext;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.rest.RestService;
 
+import java.util.Collections;
+
 @EBean
 public class RestBackgroundTask {
 
@@ -22,6 +24,7 @@ public class RestBackgroundTask {
         try {
             restClient.setHeader("X-Dreamfactory-Application-Name", "cookbook");
             CookBook cookBook = restClient.getCookBook();
+            Collections.reverse(cookBook.records);
             publishResult(cookBook);
         } catch (Exception e) {
             publishError(e);

@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.mariusz.easycookbook.Adapter.RecipesListAdapter;
 import com.example.mariusz.easycookbook.Data.CookBook;
 import com.example.mariusz.easycookbook.Data.Recipe;
+import com.example.mariusz.easycookbook.Data.User;
 
 
 import org.androidannotations.annotations.AfterViews;
@@ -24,6 +25,9 @@ import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_main)
  public class MainActivity extends ActionBarActivity {
+
+    @Extra
+    User user;
 
     @Extra
     Recipe recipe;

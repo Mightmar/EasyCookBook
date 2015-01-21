@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Data dodania:"
-        android:id="@+id/timestamp"
+        android:id="@+id/created"
         android:layout_below="@+id/steps"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

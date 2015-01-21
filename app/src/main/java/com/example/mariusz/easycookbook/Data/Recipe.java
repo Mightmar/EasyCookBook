@@ -15,7 +15,7 @@ public class Recipe implements Serializable {
     public String introduction;
     public String ingredients;
     public String steps;
-    public String timestamp;
+    public String created;
     public String preparationMinutes;
     public String cookingMinutes;
     public String servings;

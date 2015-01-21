@@ -1,9 +1,6 @@
 package com.example.mariusz.easycookbook;
 
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.mariusz.easycookbook.Data.Recipe;
@@ -27,7 +24,7 @@ public class ThingsActivity extends ActionBarActivity {
     @ViewById
     TextView steps;
     @ViewById
-    TextView timestamp;
+    TextView created;
     @ViewById
     TextView preparationMinutes;
     @ViewById
@@ -42,7 +39,7 @@ public class ThingsActivity extends ActionBarActivity {
         introduction.setText(recipe.introduction);
         ingredients.setText(recipe.ingredients);
         steps.setText(recipe.steps);
-        timestamp.setText(recipe.timestamp);
+        created.setText(recipe.created);
         preparationMinutes.setText(recipe.preparationMinutes);
         cookingMinutes.setText(recipe.cookingMinutes);
         servings.setText(recipe.servings);

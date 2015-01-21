@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ public class DodajPrzepisActivity extends ActionBarActivity {
     @Bean
     @NonConfigurationInstance
     RestRecipeBackgroundTask restRecipeBackgroundTask;
+
+
 
     @Extra
     User user;
@@ -52,6 +55,9 @@ public class DodajPrzepisActivity extends ActionBarActivity {
     @ViewById
     EditText servings;
 
+    @ViewById
+    Button buttonConfirm;
+
     ProgressDialog ringProgressDialog;
 
     @AfterViews
@@ -65,7 +71,7 @@ public class DodajPrzepisActivity extends ActionBarActivity {
 
 
 
-    @Click(R.id.buttonConfirm)
+    @Click
     void buttonConfirmClicked() {
         ringProgressDialog.show();
         Recipe recipe = new Recipe();
@@ -77,13 +83,20 @@ public class DodajPrzepisActivity extends ActionBarActivity {
         recipe.preparationMinutes = preparationMinutes.getText().toString();
         recipe.cookingMinutes = cookingMinutes.getText().toString();
         recipe.servings = servings.getText().toString();
-        restRecipeBackgroundTask.addCookBookEntry(user, recipe);
+
 
         if ((title.length() == 0) || (ingredients.length() == 0) || (steps.length() == 0) || (servings.length() == 0)) {
             ringProgressDialog.dismiss();
             Toast.makeText(this, "Wszystkie pola muszą być wypełnione!", Toast.LENGTH_LONG).show();
-        } else {
-            restRecipeBackgroundTask.addCookBookEntry(user, recipe);
+        }
+        else
+        {
+            try{
+            restRecipeBackgroundTask.addCookBookEntry(recipe,user.sessionId);}
+            catch (Exception e){showError(e);}
+            MainActivity_.intent(this).user(user).start();
+
+
         }
     }
 
@@ -91,6 +104,8 @@ public class DodajPrzepisActivity extends ActionBarActivity {
         ringProgressDialog.dismiss();
         Toast.makeText(this, "Przepis dodany z sukcesem!", Toast.LENGTH_LONG).show();
         MainActivity_.intent(this).recipe(recipe).start();
+
+
     }
 
     public void showError(Exception e) {
