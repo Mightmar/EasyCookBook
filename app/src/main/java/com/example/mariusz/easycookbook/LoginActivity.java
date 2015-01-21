@@ -57,7 +57,7 @@ public class LoginActivity extends ActionBarActivity {
     public void loginSuccess(User user) {
         ringProgressDialog.dismiss();
         DodajPrzepisActivity_.intent(this).user(user).start();
-        Toast.makeText(this, "Zalogowano!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Witaj ponownie "+email.getText(), Toast.LENGTH_LONG).show();
     }
 
     public void showError(Exception e) {

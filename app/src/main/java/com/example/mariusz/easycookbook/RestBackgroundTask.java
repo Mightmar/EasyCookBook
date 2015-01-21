@@ -24,7 +24,7 @@ public class RestBackgroundTask {
         try {
             restClient.setHeader("X-Dreamfactory-Application-Name", "cookbook");
             CookBook cookBook = restClient.getCookBook();
-            Collections.reverse(cookBook.records);
+            Collections.reverse(cookBook.records);//odwracanie kolejnosci listy
             publishResult(cookBook);
         } catch (Exception e) {
             publishError(e);

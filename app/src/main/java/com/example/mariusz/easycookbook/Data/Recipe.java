@@ -21,6 +21,5 @@ public class Recipe implements Serializable {
     public String servings;
     public Integer ownerId;
 
-    @JsonProperty("session_id")
-    public String sessionId;
+
 }

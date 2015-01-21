@@ -1,16 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+
     tools:context="com.example.mariusz.easycookbook.DodajPrzepisActivity">
 <ScrollView
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
     <TextView
@@ -26,7 +24,7 @@
     <EditText
         android:hint="Nazwa przepisu"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title"
         android:layout_below="@+id/textView4"
@@ -38,7 +36,7 @@
     <EditText
         android:hint="Opis przepisu"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/introduction"
         android:layout_below="@+id/title"
@@ -62,7 +60,7 @@
     <EditText
         android:hint="Sposób przyrządzenia"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/steps"
         android:layout_below="@+id/ingredients"
@@ -75,7 +73,7 @@
         android:hint="Czas potrzebny na przygotowanie(min)"
         android:inputType="number"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/preparationMinutes"
         android:layout_below="@+id/steps"
@@ -88,7 +86,7 @@
         android:hint="Czas gotowania(min)"
         android:inputType="number"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cookingMinutes"
         android:layout_below="@+id/preparationMinutes"
@@ -101,7 +99,7 @@
         android:hint="Liczba Porcji"
         android:inputType="number"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/servings"
         android:layout_below="@+id/cookingMinutes"

@@ -31,7 +31,6 @@ public class RegisterActivity extends ActionBarActivity {
     EditText password;
     @Bean
     @NonConfigurationInstance
-
     RestRegisterBackgroundTask restRegisterBackgroundTask;
 
     ProgressDialog ringProgressDialog;
@@ -57,7 +56,7 @@ public class RegisterActivity extends ActionBarActivity {
     public void registerSuccess(User user){
         ringProgressDialog.dismiss();
         DodajPrzepisActivity_.intent(this).user(user).start();
-        Toast.makeText(this, "Zarejestrowano!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Witaj "+ name.getText(), Toast.LENGTH_LONG).show();
     }
 
     public void showError(Exception e) {
